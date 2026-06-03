@@ -237,7 +237,7 @@ body{
 
     height:100%;
 
-    display:flex;
+
 
     justify-content:center;
     align-items:center;
@@ -253,6 +253,10 @@ body{
     width:100%;
 
     min-height:1000px;
+
+    min-width: 510px;
+
+    margin-right:0% ;
 
     padding:40px;
 

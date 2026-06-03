@@ -123,17 +123,17 @@ joinBtn.addEventListener("click",(e)=>{
 
 
 const loginBtn =
-document.querySelector("#join-btn");
+document.querySelector("#login-btn");
 
 loginBtn.addEventListener("click",(e)=>{
 
     e.preventDefault();
 
     const loginEmail =
-    document.querySelector("#join-email").value;
+    document.querySelector("#login-email").value;
 
     const loginPassword =
-    document.querySelector("#join-password").value;
+    document.querySelector("#login-password").value;
 
     const storedUser =
     JSON.parse(
