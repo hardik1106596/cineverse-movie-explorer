@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,19 +14,26 @@
     <link rel="stylesheet"
           href="css/home.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
-    <!-- ==========================
-         NAVBAR
-    =========================== -->
+    <!-- NAVBAR -->
 
     <nav class="navbar">
 
-        <div class="logo">
+        <div class="brand">
 
-            CineVerse
+            <img src="images/pic1.png"
+                 class="logo">
+
+            <h1>CineVerse</h1>
 
         </div>
 
@@ -33,23 +41,32 @@
 
             <li>Home</li>
 
-            <li>Discover</li>
+            <li>Movies</li>
+
+            <li>Series</li>
+
+            <li>Anime</li>
 
             <li>Trending</li>
 
-            <li>Favorites</li>
-
-            <li>Watchlist</li>
-
-            <li>Profile</li>
+            <li>My List</li>
 
         </ul>
 
         <div class="nav-right">
 
-            <input
-                type="text"
-                placeholder="Search movies...">
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="search-input"
+                    type="text"
+                    placeholder="Search movies...">
+
+            </div>
+
+            <i class="fa-solid fa-bell"></i>
 
             <div id="profile-name">
 
@@ -61,295 +78,213 @@
 
     </nav>
 
-    <!-- ==========================
-         HERO BANNER
-    =========================== -->
+    <!-- HERO CAROUSEL -->
 
-    <header class="hero">
+    <section class="hero">
 
         <div class="hero-overlay">
 
-            <h1>
+            <div class="hero-content">
 
-                Oppenheimer
+                <span class="hero-tag">
 
-            </h1>
+                    Featured Movie
+                </span>
 
-            <p>
+                <h1 id="hero-title">
 
-                The world forever changes.
+                    Loading...
+                </h1>
 
-            </p>
+                <div class="hero-meta">
 
-            <div class="movie-meta">
+                    <span id="hero-rating">
 
-                <span>⭐ 8.5</span>
+                        ⭐ 0.0
+                    </span>
 
-                <span>Drama</span>
+                    <span id="hero-year">
 
-                <span>History</span>
+                        2025
+                    </span>
 
-                <span>Thriller</span>
+                </div>
 
-            </div>
+                <p id="hero-description">
 
-            <div class="hero-buttons">
+                    Loading...
+                </p>
 
-                <button>
+                <div class="hero-buttons">
 
-                    ▶ Watch Now
+                    <button class="watch-btn">
 
-                </button>
+                        <i class="fa-solid fa-play"></i>
 
-                <button>
+                        Watch Now
 
-                    + Watchlist
+                    </button>
 
-                </button>
+                    <button class="watchlist-btn">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Watchlist
+
+                    </button>
+
+                </div>
 
             </div>
 
         </div>
 
-    </header>
+    </section>
 
-    <!-- ==========================
-         MAIN
-    =========================== -->
+    <!-- MAIN CONTENT -->
 
     <main>
 
-        <!-- Welcome -->
+        <section class="section">
 
-        <section class="welcome">
+            <div class="section-header">
 
-            <h2 id="welcome-text">
+                <h2>🔥 Trending Now</h2>
 
-                Welcome Back
-
-            </h2>
-
-        </section>
-
-        <!-- Continue Watching -->
-
-        <section>
-
-            <h2>
-
-                Continue Watching
-
-            </h2>
-
-            <div class="continue-container">
+                <a href="#">View All</a>
 
             </div>
-
-        </section>
-
-        <!-- Trending -->
-
-        <section>
-
-            <h2>
-
-                Trending Movies
-
-            </h2>
 
             <div
                 id="trending-container"
-                class="movie-grid">
+                class="movie-row">
 
             </div>
 
         </section>
 
-        <!-- Top Rated -->
+        <section class="section">
 
-        <section>
+            <div class="section-header">
 
-            <h2>
+                <h2>⭐ Top Rated Movies</h2>
 
-                Top Rated
+                <a href="#">View All</a>
 
-            </h2>
+            </div>
 
             <div
                 id="top-rated-container"
-                class="movie-grid">
+                class="movie-row">
 
             </div>
 
         </section>
 
-        <!-- Recommended -->
+        <section class="section">
 
-        <section>
+            <div class="section-header">
 
-            <h2>
+                <h2>📺 Popular Series</h2>
 
-                Recommended For You
+                <a href="#">View All</a>
 
-            </h2>
+            </div>
+
+            <div
+                id="series-container"
+                class="movie-row">
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2>🎯 Recommended For You</h2>
+
+                <a href="#">View All</a>
+
+            </div>
 
             <div
                 id="recommended-container"
-                class="movie-grid">
+                class="movie-row">
 
             </div>
 
         </section>
 
-        <!-- Latest Releases -->
+        <section class="section">
 
-        <section>
+            <div class="section-header">
 
-            <h2>
+                <h2>🚀 Upcoming Releases</h2>
 
-                Latest Releases
+                <a href="#">View All</a>
 
-            </h2>
+            </div>
 
             <div
-                id="latest-container"
-                class="movie-grid">
+                id="upcoming-container"
+                class="movie-row">
 
             </div>
 
         </section>
 
-        <!-- Genres -->
+        <section class="genres-section">
 
-        <section>
-
-            <h2>
-
-                Browse Genres
-
-            </h2>
+            <h2>🎭 Browse Genres</h2>
 
             <div class="genre-container">
 
                 <button>Action</button>
-
-                <button>Sci-Fi</button>
-
                 <button>Drama</button>
-
+                <button>Sci-Fi</button>
                 <button>Comedy</button>
-
                 <button>Thriller</button>
-
-                <button>Mystery</button>
-
-                <button>Fantasy</button>
-
                 <button>Adventure</button>
+                <button>Fantasy</button>
+                <button>Mystery</button>
 
             </div>
 
         </section>
-
-        <!-- Stats -->
 
         <section class="stats-section">
 
-            <div class="stat-box">
+            <div class="stat-card">
 
-                <h3>
+                <h3>50K+</h3>
 
-                    50K+
-
-                </h3>
-
-                <p>
-
-                    Movies
-
-                </p>
+                <p>Movies</p>
 
             </div>
 
-            <div class="stat-box">
+            <div class="stat-card">
 
-                <h3>
+                <h3>10K+</h3>
 
-                    200+
-
-                </h3>
-
-                <p>
-
-                    Genres
-
-                </p>
+                <p>Series</p>
 
             </div>
 
-            <div class="stat-box">
+            <div class="stat-card">
 
-                <h3>
+                <h3>1M+</h3>
 
-                    1M+
-
-                </h3>
-
-                <p>
-
-                    Reviews
-
-                </p>
+                <p>Users</p>
 
             </div>
 
-            <div class="stat-box">
+            <div class="stat-card">
 
-                <h3>
+                <h3>200+</h3>
 
-                    500K+
-
-                </h3>
-
-                <p>
-
-                    Users
-
-                </p>
-
-            </div>
-
-        </section>
-
-        <!-- News -->
-
-        <section>
-
-            <h2>
-
-                Movie News
-
-            </h2>
-
-            <div class="news-container">
-
-                <div class="news-card">
-
-                    News Item
-
-                </div>
-
-                <div class="news-card">
-
-                    News Item
-
-                </div>
-
-                <div class="news-card">
-
-                    News Item
-
-                </div>
+                <p>Genres</p>
 
             </div>
 
@@ -357,33 +292,15 @@
 
     </main>
 
-    <!-- ==========================
-         FOOTER
-    =========================== -->
-
     <footer>
 
-        <div>
+        <div class="footer-content">
 
-            CineVerse
+            <h2>CineVerse</h2>
 
-        </div>
-
-        <div>
-
-            Home
-
-            Discover
-
-            Favorites
-
-            Watchlist
-
-        </div>
-
-        <div>
-
-            © 2026 CineVerse
+            <p>
+                Discover Movies Beyond Imagination
+            </p>
 
         </div>
 
