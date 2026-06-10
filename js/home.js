@@ -1,5 +1,36 @@
 const API_KEY = "cdb498494cf56e2d7c791d55d8837ff1";
 
+
+const genreMap = {
+
+    Action:28,
+
+    Adventure:12,
+
+    Animation:16,
+
+    Comedy:35,
+
+    Crime:80,
+
+    Drama:18,
+
+    Fantasy:14,
+
+    Horror:27,
+
+    Mystery:9648,
+
+    Romance:10749,
+
+    "Sci-Fi":878,
+
+    Thriller:53
+
+};
+
+
+
 const hero =
 document.querySelector(".hero");
 
@@ -51,12 +82,80 @@ function renderMovies(movies, containerId)
                     ⭐ ${movie.vote_average}
                 </p>
 
+                <button
+                class="watch-now"
+                data-id="${movie.id}">
+                    Watch Now
+                </button>
+
+                <button
+                class="watchlist-btn"
+                data-id="${movie.id}">
+                    + Watchlist
+                </button>
+
             </div>
 
         </div>
         `;
     });
+
+    container
+    .querySelectorAll(".watch-now")
+    .forEach((btn)=>{
+
+        btn.addEventListener("click",()=>{
+
+            const movieId =
+            btn.dataset.id;
+
+            localStorage.setItem(
+                "selectedMovieId",
+                movieId
+            );
+
+            window.location.href =
+            "movie.html";
+        });
+
+    });
+
+    container
+    .querySelectorAll(".watchlist-btn")
+    .forEach((btn)=>{
+
+        btn.addEventListener("click",()=>{
+
+            const movieId =
+            btn.dataset.id;
+
+            let watchlist =
+            JSON.parse(
+                localStorage.getItem("watchlist")
+            ) || [];
+
+            if(!watchlist.includes(movieId))
+            {
+                watchlist.push(movieId);
+
+                localStorage.setItem(
+                    "watchlist",
+                    JSON.stringify(watchlist)
+                );
+
+                alert("Added To Watchlist");
+            }
+
+        });
+
+    });
+
 }
+
+
+
+
+
 
 function loadHero(movie)
 {
@@ -103,6 +202,7 @@ fetch(
 
 });
 
+
 fetch(
 `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
 )
@@ -120,6 +220,7 @@ fetch(
     console.log(error);
 
 });
+
 
 fetch(
 `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`
@@ -181,6 +282,46 @@ fetch(
 
 
 
+document.querySelectorAll(".list-btn")
+.forEach((btn)=>{
+
+    btn.addEventListener("click",()=>{
+
+        const movieId =
+        btn.dataset.id;
+
+        let watchlist =
+        JSON.parse(
+        localStorage.getItem(
+        "watchlist"
+        )) || [];
+
+        if(
+        !watchlist.includes(
+        movieId
+        ))
+        {
+
+            watchlist.push(
+            movieId
+            );
+
+            localStorage.setItem(
+            "watchlist",
+            JSON.stringify(
+            watchlist
+            )
+            );
+
+            alert(
+            "Added to Watchlist"
+            );
+
+        }
+
+    });
+
+});
 
 
 
@@ -351,25 +492,6 @@ if(user)
 
 
 
-
-
-
-card.addEventListener("click",()=>{
-
-    localStorage.setItem(
-    "selectedMovie",
-    JSON.stringify(movie)
-    );
-
-    window.location.href =
-    "movie.html";
-
-});
-
-
-
-
-
 const movie =
 
 JSON.parse(
@@ -383,48 +505,78 @@ console.log(movie);
 
 
 const themeBtn =
-document.querySelector(
-"#theme-btn"
-);
+document.querySelector("#theme-btn");
 
-themeBtn.addEventListener(
-"click",
-()=>{
+if(themeBtn)
+{
+    themeBtn.addEventListener(
+    "click",
+    ()=>{
 
-    document.body.classList.toggle(
-    "light-mode"
-    );
+        document.body.classList.toggle(
+        "light-mode"
+        );
 
-});
-
+    });
+}
 
 
 
 let notifications = 5;
-
+const notificationCount =
 document.querySelector(
 "#notification-count"
-).innerText =
-notifications;
+);
 
-
-
+if(notificationCount)
+{
+    notificationCount.innerText =
+    notifications;
+}
 
 
 document
-.querySelectorAll(
-".genre-container button"
-)
+.querySelectorAll(".genre-container button")
 .forEach((button)=>{
 
-    button.addEventListener(
-    "click",
-    ()=>{
+    button.addEventListener("click",()=>{
 
-        const genre =
-        button.innerText;
 
-        console.log(genre);
+
+    console.log(button.innerText);
+
+        const genreId =
+        genreMap[
+            button.innerText
+        ];
+
+        console.log(
+button.innerText
+);
+
+console.log(
+genreMap[
+button.innerText
+]
+
+);
+
+        fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`
+        )
+        .then(res=>res.json())
+        .then(data=>{
+
+            document.querySelector(
+"#genre-title"
+).innerText =
+`🎭 ${button.innerText} Movies`;
+
+renderMovies(
+    data.results,
+    "#genre-container"
+);
+        });
 
     });
 
