@@ -2,15 +2,138 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CineVerse - Movie Details</title>
-  <link rel="stylesheet" href="css/movie.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Details</title>
+
+    <link rel="stylesheet"
+          href="css/movie.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
-  <h1>Movie Details</h1>
-  <script src="js/movies.js"></script>
+
+    <div id="movie-banner">
+
+        <div class="banner-overlay">
+
+            <div class="movie-content">
+
+                <img
+                    id="movie-poster"
+                    src=""
+                    alt="Movie Poster">
+
+                <div class="movie-details">
+
+                    <h1 id="movie-title">
+                        Loading...
+                    </h1>
+
+                    <div class="movie-meta">
+
+                        <span id="movie-rating">
+                            ⭐ 0.0
+                        </span>
+
+                        <span id="movie-date">
+                            2025
+                        </span>
+
+                    </div>
+
+                    <p id="movie-overview">
+                        Loading...
+                    </p>
+
+                    <div class="movie-buttons">
+
+                        <button id="watch-trailer-btn">
+
+                            <i class="fa-solid fa-play"></i>
+
+                            Watch Trailer
+
+                        </button>
+
+                        <button id="add-watchlist-btn">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Watchlist
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="extra-info">
+
+        <div class="info-card">
+
+            <h3>Genres</h3>
+
+            <p id="movie-genres">
+                Loading...
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Language</h3>
+
+            <p id="movie-language">
+                Loading...
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Popularity</h3>
+
+            <p id="movie-popularity">
+                Loading...
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="recommendations">
+
+        <h2>
+            Recommended Movies
+        </h2>
+
+        <div
+            id="recommendation-container"
+            class="movie-row">
+
+        </div>
+
+    </section>
+
+    <script src="js/movie.js"></script>
+
 </body>
 
 </html>

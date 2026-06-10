@@ -1,1 +1,407 @@
 /* Movie page styles placeholder */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+    --red:#e50914;
+
+    --black:#050505;
+
+    --dark:#101010;
+
+    --card:#151515;
+
+    --white:#ffffff;
+
+    --gray:#bdbdbd;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:var(--black);
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+/* ======================
+   BANNER
+====================== */
+
+#movie-banner{
+
+    min-height:100vh;
+
+    background-position:center;
+
+    background-size:cover;
+
+    background-repeat:no-repeat;
+
+    position:relative;
+
+}
+
+.banner-overlay{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.5)
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    padding:80px;
+
+}
+
+.movie-content{
+
+    display:flex;
+
+    gap:50px;
+
+    align-items:center;
+
+}
+
+#movie-poster{
+
+    width:320px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.6);
+
+}
+
+.movie-details{
+
+    max-width:700px;
+
+}
+
+#movie-title{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+    line-height:1.1;
+
+}
+
+.movie-meta{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+    font-size:1.1rem;
+
+    color:#f5c518;
+
+}
+
+#movie-overview{
+
+    color:var(--gray);
+
+    line-height:1.9;
+
+    font-size:1rem;
+
+    margin-bottom:30px;
+
+}
+
+/* ======================
+   BUTTONS
+====================== */
+
+.movie-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+#watch-trailer-btn{
+
+    background:var(--red);
+
+    color:white;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+#watch-trailer-btn:hover{
+
+    background:#ff2a35;
+
+}
+
+#add-watchlist-btn{
+
+    background:
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+#add-watchlist-btn:hover{
+
+    background:
+    rgba(255,255,255,.15);
+
+}
+
+/* ======================
+   INFO CARDS
+====================== */
+
+.extra-info{
+
+    padding:60px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.info-card{
+
+    background:var(--card);
+
+    padding:30px;
+
+    border-radius:18px;
+
+    border:
+    1px solid rgba(255,255,255,.06);
+
+}
+
+.info-card h3{
+
+    color:var(--red);
+
+    margin-bottom:12px;
+
+}
+
+.info-card p{
+
+    color:var(--gray);
+
+}
+
+/* ======================
+   RECOMMENDATIONS
+====================== */
+
+.recommendations{
+
+    padding:0 60px 80px;
+
+}
+
+.recommendations h2{
+
+    margin-bottom:25px;
+
+    font-size:2rem;
+
+}
+
+.movie-row{
+
+    display:flex;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    padding-bottom:15px;
+
+}
+
+.movie-row::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.movie-card{
+
+    min-width:220px;
+
+    background:#111;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.movie-card:hover{
+
+    transform:scale(1.05);
+
+}
+
+.movie-card img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+}
+
+.movie-info{
+
+    padding:12px;
+
+}
+
+.movie-info h3{
+
+    font-size:1rem;
+
+    margin-bottom:8px;
+
+}
+
+.movie-info p{
+
+    color:#f5c518;
+
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media(max-width:1000px){
+
+    .movie-content{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    #movie-title{
+
+        font-size:3rem;
+
+    }
+
+    .movie-buttons{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .banner-overlay{
+
+        padding:30px;
+
+    }
+
+    #movie-poster{
+
+        width:250px;
+
+    }
+
+    #movie-title{
+
+        font-size:2.3rem;
+
+    }
+
+    .extra-info{
+
+        grid-template-columns:1fr;
+
+        padding:30px;
+
+    }
+
+    .recommendations{
+
+        padding:30px;
+
+    }
+
+}

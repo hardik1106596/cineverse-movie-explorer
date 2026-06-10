@@ -29,6 +29,7 @@ const genreMap = {
 
 };
 
+let heroMovie = null;
 
 
 const hero =
@@ -159,6 +160,8 @@ function renderMovies(movies, containerId)
 
 function loadHero(movie)
 {
+    heroMovie = movie;
+
     const banner =
     "https://image.tmdb.org/t/p/original" +
     movie.backdrop_path;
@@ -313,9 +316,10 @@ document.querySelectorAll(".list-btn")
             )
             );
 
-            alert(
-            "Added to Watchlist"
-            );
+            btn.innerText =
+            "✓ Added";
+
+            btn.disabled = true;
 
         }
 
@@ -449,7 +453,74 @@ function removeFavorite(movieId)
 
 
 
+const heroWatchBtn =
+document.querySelector(
+"#hero-watch-btn"
+);
 
+heroWatchBtn.addEventListener(
+"click",
+()=>{
+
+    if(!heroMovie)
+    {
+        return;
+    }
+
+    localStorage.setItem(
+        "selectedMovie",
+        JSON.stringify(heroMovie)
+    );
+
+    window.location.href =
+    "movie.html";
+
+});
+
+const heroWatchlistBtn =
+document.querySelector(
+"#hero-watchlist-btn"
+);
+
+heroWatchlistBtn.addEventListener(
+"click",
+()=>{
+
+    if(!heroMovie)
+    {
+        return;
+    }
+
+    let watchlist =
+
+    JSON.parse(
+    localStorage.getItem(
+    "watchlist"
+    )) || [];
+
+    if(
+    !watchlist.includes(
+    heroMovie.id
+    ))
+    {
+
+        watchlist.push(
+        heroMovie.id
+        );
+
+        localStorage.setItem(
+        "watchlist",
+        JSON.stringify(
+        watchlist
+        )
+        );
+
+        heroWatchlistBtn.innerText =
+        "✓ Added";
+
+    }
+
+});
 
 
 
