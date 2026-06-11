@@ -1,43 +1,43 @@
 const API_KEY =
 "cdb498494cf56e2d7c791d55d8837ff1";
 
-function renderMovies(movies)
+function renderAnime(anime)
 {
     const container =
     document.querySelector(
-    "#movies-container"
+    "#anime-container"
     );
 
     container.innerHTML = "";
 
-    movies.forEach((movie)=>{
+    anime.forEach((show)=>{
 
-        if(!movie.poster_path)
+        if(!show.poster_path)
         {
             return;
         }
 
         const poster =
         "https://image.tmdb.org/t/p/w500" +
-        movie.poster_path;
+        show.poster_path;
 
         container.innerHTML +=
         `
         <div
-        class="movie-card"
-        onclick='openMovie(${JSON.stringify(movie)})'>
+        class="anime-card"
+        onclick='openAnime(${JSON.stringify(show)})'>
 
             <img
             src="${poster}">
 
-            <div class="movie-info">
+            <div class="anime-info">
 
                 <h3>
-                    ${movie.title}
+                    ${show.title}
                 </h3>
 
                 <p>
-                    ⭐ ${movie.vote_average}
+                    ⭐ ${show.vote_average}
                 </p>
 
             </div>
@@ -47,11 +47,11 @@ function renderMovies(movies)
     });
 }
 
-function openMovie(movie)
+function openAnime(show)
 {
     localStorage.setItem(
     "selectedMovie",
-    JSON.stringify(movie)
+    JSON.stringify(show)
     );
 
     window.location.href =
@@ -59,13 +59,18 @@ function openMovie(movie)
 }
 
 fetch(
-`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`
 )
 .then((response)=>response.json())
 .then((data)=>{
 
-    renderMovies(
+    renderAnime(
         data.results
     );
+
+})
+.catch((error)=>{
+
+    console.log(error);
 
 });

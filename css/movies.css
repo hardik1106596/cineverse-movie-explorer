@@ -1,0 +1,113 @@
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#050505;
+
+    color:white;
+
+}
+
+.navbar{
+
+    padding:20px 50px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#111;
+
+}
+
+.navbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+.movies-page{
+
+    padding:40px;
+
+}
+
+.movies-page h2{
+
+    margin-bottom:30px;
+
+}
+
+.movies-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.movie-card{
+
+    background:#151515;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.movie-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.movie-card img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+}
+
+.movie-info{
+
+    padding:15px;
+
+}
+
+.movie-info h3{
+
+    font-size:1rem;
+
+    margin-bottom:10px;
+
+}
+
+.movie-info p{
+
+    color:#ccc;
+
+}

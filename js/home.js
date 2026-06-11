@@ -84,7 +84,7 @@ function renderMovies(movies, containerId)
                 </p>
 
                 <button
-                class="watch-now"
+                class="watch-btn"
                 data-id="${movie.id}">
                     Watch Now
                 </button>
@@ -101,25 +101,7 @@ function renderMovies(movies, containerId)
         `;
     });
 
-    container
-    .querySelectorAll(".watch-now")
-    .forEach((btn)=>{
 
-        btn.addEventListener("click",()=>{
-
-            const movieId =
-            btn.dataset.id;
-
-            localStorage.setItem(
-                "selectedMovieId",
-                movieId
-            );
-
-            window.location.href =
-            "movie.html";
-        });
-
-    });
 
     container
     .querySelectorAll(".watchlist-btn")
@@ -350,10 +332,18 @@ document.querySelectorAll(".nav-links li")
             "movies.html";
         }
 
+
+
         if(text==="Series")
         {
             window.location.href =
             "series.html";
+        }
+
+        if(text==="Anime")
+        {
+            window.location.href =
+            "anime.html";
         }
 
         if(text==="Trending")
