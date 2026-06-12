@@ -102,6 +102,36 @@ function renderMovies(movies, containerId)
     });
 
 
+    container
+    .querySelectorAll(".watch-btn")
+    .forEach((btn)=>{
+
+        btn.addEventListener("click",()=>{
+
+            const movieId =
+            Number(btn.dataset.id);
+
+            const selectedMovie =
+            movies.find((movie)=>{
+
+                return movie.id === movieId;
+
+            });
+
+            localStorage.setItem(
+                "selectedMovie",
+                JSON.stringify(
+                selectedMovie
+                )
+            );
+
+            window.location.href =
+            "movie.html";
+
+        });
+
+    });
+
 
     container
     .querySelectorAll(".watchlist-btn")
@@ -264,54 +294,6 @@ fetch(
 
 
 
-
-
-
-document.querySelectorAll(".list-btn")
-.forEach((btn)=>{
-
-    btn.addEventListener("click",()=>{
-
-        const movieId =
-        btn.dataset.id;
-
-        let watchlist =
-        JSON.parse(
-        localStorage.getItem(
-        "watchlist"
-        )) || [];
-
-        if(
-        !watchlist.includes(
-        movieId
-        ))
-        {
-
-            watchlist.push(
-            movieId
-            );
-
-            localStorage.setItem(
-            "watchlist",
-            JSON.stringify(
-            watchlist
-            )
-            );
-
-            btn.innerText =
-            "✓ Added";
-
-            btn.disabled = true;
-
-        }
-
-    });
-
-});
-
-
-
-
 document.querySelectorAll(".nav-links li")
 .forEach((item)=>{
 
@@ -385,7 +367,10 @@ searchInput.addEventListener("keyup",()=>{
     .then((response)=>response.json())
     .then((data)=>{
 
-        console.log(data);
+        renderMovies(
+            data.results,
+            "#trending-container"
+        );
 
     });
 
